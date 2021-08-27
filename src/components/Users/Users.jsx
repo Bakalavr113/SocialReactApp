@@ -3,8 +3,9 @@ import styles from "./users.module.css";
 import userPhoto from "../../assets/images/user.png";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import { FollowingInProgres } from "../../redux/users-reducer";
 
-let Users = ({changePageNum, totalUserCount, pageSize, currentPage, unfollow, follow, users, isFetching}) => {
+let Users = ({changePageNum, totalUserCount, pageSize, currentPage, unfollow, follow, users, isFetching, followingInProgres,FollowingInProgres}) => {
 
     let pagesCount = Math.ceil(totalUserCount / pageSize)/100;
 
@@ -38,7 +39,8 @@ let Users = ({changePageNum, totalUserCount, pageSize, currentPage, unfollow, fo
                     </div>
                     <div>
                         {u.followed
-                            ? <button disabled={isFetching} onClick={() => {
+                            ? <button disabled={followingInProgres.some(id => id === u.id)} onClick={() => {
+                                FollowingInProgres(true, u.id)
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{
                                     withCredentials: true,
                                     headers:{
@@ -48,10 +50,12 @@ let Users = ({changePageNum, totalUserCount, pageSize, currentPage, unfollow, fo
                                 .then(response => {
                                   if (response.data.resultCode === 0){
                                     unfollow(u.id)
+                                    FollowingInProgres(false, u.id)
                                   }
                                 });
                             }}>Unfollow</button>
-                            : <button disabled={isFetching} onClick={() => {
+                            : <button disabled={followingInProgres.some(id => id === u.id)} onClick={() => {
+                                FollowingInProgres(true, u.id)
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,{},{
                                     withCredentials: true,
                                     headers:{
@@ -61,6 +65,7 @@ let Users = ({changePageNum, totalUserCount, pageSize, currentPage, unfollow, fo
                                 .then(response => {
                                   if (response.data.resultCode === 0){
                                     follow(u.id)
+                                    FollowingInProgres(false, u.id)
                                   }
                                 });
                               
