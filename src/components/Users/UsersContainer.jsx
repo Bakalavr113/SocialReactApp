@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {  compose } from 'redux'
+
 import {
     followSuc,
     setUsers,
@@ -11,6 +13,7 @@ import {
 } from "../../redux/users-reducer";
 import Users from "./Users";
 import {Preloader} from "../common/Preloader/preloader";
+import LoginHOC from '../common/Login/LoginHoc/LoginHOC';
 
 class UsersContainer extends React.Component {
 
@@ -67,14 +70,22 @@ let mapStateToProps = (state) => {
     }
 }
 
+export default compose(LoginHOC,connect(mapStateToProps, {
+        followSuc,
+        unfollowSuc,
+        setUsers,
+        setIsFetching,
+        getUsers,
+        follow,
+        unfollow
+    }))(UsersContainer)
 
-
-export default connect(mapStateToProps, {
-    followSuc,
-    unfollowSuc,
-    setUsers,
-    setIsFetching,
-    getUsers,
-    follow,
-    unfollow
-})(UsersContainer);
+// export default LoginHOC(connect(mapStateToProps, {
+//     followSuc,
+//     unfollowSuc,
+//     setUsers,
+//     setIsFetching,
+//     getUsers,
+//     follow,
+//     unfollow
+// })(UsersContainer));
