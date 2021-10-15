@@ -1,21 +1,26 @@
 .app-wrapper {
     margin: 0 auto;
-    display: grid;
-    width: 1200px;
-    grid-template-areas: "h h" "n c";
+   display: flex;
+   flex-direction: column;
+    height: 100vh;
 
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2fr 10fr;
+  background: #141E30;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    /* animation: gradient 15s ease infinite; */
+   
+   /* background-color: white; */
     /* grid-gap: 10px; */
 }
 
 .app-wrapper-content {
-    grid-area: c;
-    background-color: cornflowerblue;
+   height: 100%;
+   padding-top: 80px;
+    /* background: linear-gradient(335.52deg, #3091ff -1.36%, #586acf 39.08%, hsla(0, 0%, 0%, 0.61) 93.05%), #dd3838; */
+
 }
-
-
-
 
 
 

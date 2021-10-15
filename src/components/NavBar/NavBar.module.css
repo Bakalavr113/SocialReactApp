@@ -1,14 +1,30 @@
 .nav {
-    grid-area: n;
-    background-color: burlywood;
-    padding: 20px;
+   
+   display: flex;
+   
 }
 
 .item a {
     color: white;
     text-decoration: none;
+   font-size: 24px;
+   transition: all 0.4s ease;
+    
 }
-
+.item{
+    margin-left: 100px;
+    
+}
+.item:first-child{
+    margin-left: 0;
+    
+}
 .item a.activeLink {
-    color: gold;
+    transition: all 0.4s ease;
+    color: #ffcc33;
+    font-weight: 500;
+}
+.item a:hover {
+    transition: all 0.4s ease;
+    color: #f5d679;
 }
