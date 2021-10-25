@@ -5,14 +5,14 @@ import { NavLink } from "react-router-dom";
 import Pagination from "../Paginations";
 import { Preloader } from "../common/Preloader/preloader";
 import { useDispatch } from "react-redux";
+import { Container, FlexCenter, Wrapper } from "../Profile/MyPosts/MyPosts";
 
 let Users = (props) => {
   const dispatch = useDispatch()
   
   return (
-    <div>
+    <FlexCenter>
      
-    
      <div>
          { props.isFetching ? <Preloader/> : (
        props.users &&   <Pagination
@@ -24,11 +24,11 @@ let Users = (props) => {
       </div>
     
 
-
-      {props.users && props.users.map((u) => (
+          <Container>
+          {props.users && props.users.map((u) => (
         <div key={u.id}>
-          <span>
-            <div>
+        <Wrapper>
+          
               <NavLink to={`/profile/${u.id}`}>
                 <img
                   alt="asa"
@@ -36,8 +36,8 @@ let Users = (props) => {
                   className={styles.userPhoto}
                 />
               </NavLink>
-            </div>
-            <div>
+            
+          
               {u.followed ? (
                 <button
                   disabled={props.followingInProgres.some((id) => id === u.id)}
@@ -57,21 +57,23 @@ let Users = (props) => {
                   Follow
                 </button>
               )}
-            </div>
-          </span>
-          <span>
-            <span>
+           
+           
               <div>{u.name}</div>
               <div>{u.status}</div>
-            </span>
-            <span>
+           
+           
              
              
-            </span>
-          </span>
+           
+            </Wrapper>
+        
         </div>
       ))}
-    </div>
+
+          </Container>
+    
+    </FlexCenter>
   );
 };
 

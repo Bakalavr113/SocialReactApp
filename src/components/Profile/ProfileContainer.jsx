@@ -5,6 +5,7 @@ import { SetProfile, getProfile ,getUserStatus, setUserStatus, setUserPhoto,setE
 import { Redirect, withRouter } from "react-router-dom";
 import LoginHOC from "../common/Login/LoginHoc/LoginHOC";
 import {compose} from "redux"
+import { Preloader } from "../common/Preloader/preloader";
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.match.params.userId;
@@ -39,7 +40,13 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
-    return <Profile setEditPrifleData={this.props.setEditPrifleData} setUserPhoto={this.props.setUserPhoto} isOwner={!this.props.match.params.userId} {...this.props} profile={this.props.profile} status={this.props.status} setUserStatus = {this.props.setUserStatus} />;
+    if (!this.props.profile) {
+      return <Preloader />;
+    }
+    else{
+      return <Profile setEditPrifleData={this.props.setEditPrifleData} setUserPhoto={this.props.setUserPhoto} isOwner={!this.props.match.params.userId} {...this.props} profile={this.props.profile} status={this.props.status} setUserStatus = {this.props.setUserStatus} />;
+    }
+   
   }
 }
 let mapStateToProps = (state) => {

@@ -5,8 +5,12 @@
     justify-content: center;
     padding: 20px;
     width: 100%;
-    background-color: transparent;
-    
+    z-index: 100;
+    background: white;
+    /* background-color: transparent; */
+    -webkit-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+-moz-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
 	
 	
 	/* height: 100vh; */
@@ -18,13 +22,13 @@
 
 
 .login {
-    color: white;
+    color: #2a4463;
     text-decoration: none;
    font-size: 24px;
 }
 
 .name{
-    color: white;
+    color: #2a4463;
     text-decoration: none;
    font-size: 24px;
   
@@ -47,7 +51,7 @@
 }
 .title{
     font-size: 30px;
-    color: white;
+    color: #2a4463;
     
 }
 
@@ -73,16 +77,18 @@
     }
   }
   .logBtn{
-    color: white;
+    color: #2479e9;
     text-decoration: none;
    font-size: 24px;
+   border: 2px solid #2479e9;
       padding: 10px 20px;
-      border: 2px solid white;
+     
       border-radius: 8px;
       transition: all 0.4s ease;
   }
   .logBtn:hover{
-   color: #ffcc33;
-   border: 2px solid #ffcc33;
+   background-color: #2479e9;
+  color: white;
+  border: 2px solid #2479e9;
    transition: all 0.4s ease;
 }

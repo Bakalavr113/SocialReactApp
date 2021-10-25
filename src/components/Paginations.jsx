@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Users/users.module.css";
+import styled from "styled-components";
+const ButtonPag = styled.button`
+padding: 2px 5px;
+background: transparent;
+color: #2479e9;
+border: 1px solid #2479e9;
+`
+const COntainerPag = styled.div`
+margin: 20px 0;
+`
 function Pagination({ pages = 10, setCurrentPage, currentPage}) {
   //Set number of pages
   const numberOfPages = [];
@@ -61,8 +71,8 @@ function Pagination({ pages = 10, setCurrentPage, currentPage}) {
   }, [currentButton]);
 
   return (
-    <div className="pagination-container">
-      <span
+    <COntainerPag className="pagination-container">
+      <ButtonPag
         
         className={`${currentButton === 1 ? styles.pageNum1 : styles.pageNum}`}
         onClick={() =>
@@ -70,22 +80,22 @@ function Pagination({ pages = 10, setCurrentPage, currentPage}) {
         }
       >
         Prev
-      </span>
+      </ButtonPag>
 
       {arrOfCurrButtons.map((item, index) => {
         return (
-          <span
+          <ButtonPag
             href="#"
             key={index}
             className={`${currentButton === item ? styles.pageNum : styles.pageNum1}`}
             onClick={() => setCurrentButton(item)}
           >
             {item}
-          </span>
+          </ButtonPag>
         );
       })}
 
-      <span
+      <ButtonPag
         href="#"
         className={`${
           currentButton === numberOfPages.length ? styles.pageNum1 : styles.pageNum
@@ -97,8 +107,8 @@ function Pagination({ pages = 10, setCurrentPage, currentPage}) {
         }
       >
         Next
-      </span>
-    </div>
+      </ButtonPag>
+    </COntainerPag>
   );
 }
 

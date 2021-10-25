@@ -19,7 +19,12 @@ let mapDispatchToProps = (dispatch) => {
         }
     }
 }
+class DialogsContainer extends React.Component{
 
+    render() {
+        return <Dialogs {...this.props}/>
+    }
+}
 // const DialogsContainer = LoginHOC(connect(mapStateToProps, mapDispatchToProps)(Dialogs));
-export default compose(LoginHOC,connect(mapStateToProps, mapDispatchToProps))(Dialogs)
+export default compose(LoginHOC,connect(mapStateToProps, mapDispatchToProps))(DialogsContainer)
 // export default DialogsContainer;

@@ -1,3 +1,95 @@
 .descriptionBlock {
+  /* padding: 30px; */
+}
+.userCardImage{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    position: relative;
+}
+.userCard {
+    padding: 30px;
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+  -moz-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+  box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+  width: 500px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.userCard:hover{
+    transform: scale(1.05);
+    transition: all 0.4s ease;
+}
+.UserAvatar{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+    -moz-box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+    box-shadow: 0px 2px 20px 6px rgba(34, 60, 80, 0.13);
+    
+    
+    transition: all 0.4s ease;
+}
+.UserAvatar:hover{
+
+    transition: all 0.4s ease;
+}
+.changePhotoBtn{
+    transition: all 0.4s ease;
+    position: absolute;
+    /* transform: translate(-50%, -50%); */
+    /* left: 50%; */
+    /* top: 50%; */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    background-image: url("../../../assets/images/photo-camera-svgrepo-com.svg") ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+    top: 0;
+}
+input[type=file]{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+.userName{
+    font-size: 24px;
+    font-weight: 600;
+}
+.nameBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.userProfile{
+    display: flex;
+    flex-direction: column;
+}
+.socialIcon{
+    width: 50px;
+    height: 50px;
+}
+.socialItem{
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: uppercase;
     padding: 10px;
+   
+   
+}
+.socialTitile{
+    font-size: 30px;
+    font-weight: 600;
+}
+.red{
+    color: red;
 }
